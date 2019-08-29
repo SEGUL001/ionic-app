@@ -1,10 +1,19 @@
+<ion-item-sliding class= "animated fadeInDow " color="dark" *ngFor="let item of deseosService.listas | filtroCompletado:terminada">
+
 <ion-list color="dark">
-    <ion-item *ngFor="let item of deseosService.listas"
+    <ion-item 
     detail color="dark" (click) = listaSeleccionada(item)>
       <ion-label>
         {{item.title}}
       </ion-label>
       <ion-note slot="end" color="tertiary">{{item.items.length}} items</ion-note>
     </ion-item>
+    <ion-item-options side="end">
+        <ion-item-option (click)="borrarLista(item)" color = "danger">
+          <ion-icon slot="icon-only" name="close"></ion-icon>
+        </ion-item-option>
+     </ion-item-options>
     
 </ion-list>
+
+</ion-item-sliding>
